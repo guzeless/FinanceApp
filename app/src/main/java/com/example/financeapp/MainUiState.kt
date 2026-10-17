@@ -2,25 +2,24 @@ package com.example.financeapp
 
 internal data class MainUiState(
     val balance: Int = 0,
-    val count: Int = 0
+    val count: Int = 0,
 )
 
 internal enum class TransactionType {
     DEPOSIT,
-    WITHDRAW
+    WITHDRAW,
 }
 
 internal data class Transaction(
     val amount: Int = 0,
-    val transactionType: TransactionType
+    val transactionType: TransactionType,
 )
 
 internal sealed interface MainUiEvent {
     data class AddTransaction(val transaction: Transaction) : MainUiEvent
 }
 
-internal fun reduce(
-    state: MainUiState, event: MainUiEvent,
+internal fun reduce(state: MainUiState, event: MainUiEvent,
 ): MainUiState = when (event) {
     is MainUiEvent.AddTransaction -> {
         val balanceChange = when (event.transaction.transactionType) {
