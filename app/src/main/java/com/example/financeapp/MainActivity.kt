@@ -26,6 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+private const val amount: Int = 500
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,7 +75,7 @@ private fun FinanceAppScreen() {
             )
             Button(onClick = {
                 val transaction = Transaction(
-                    500,
+                    amount,
                     TransactionType.DEPOSIT,
                     )
                 state = reduce(state, MainUiEvent.AddTransaction(transaction))
@@ -84,7 +85,7 @@ private fun FinanceAppScreen() {
             Button(onClick = {
 
                 val transaction = Transaction(
-                    250,
+                    amount,
                     TransactionType.WITHDRAW,
                     )
                 state = reduce(state, MainUiEvent.AddTransaction(transaction))
