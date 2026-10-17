@@ -76,10 +76,8 @@ private fun FinanceAppScreen() {
                 val transaction = Transaction(
                     500,
                     TransactionType.DEPOSIT,
-
                     )
                 state = reduce(state, MainUiEvent.AddTransaction(transaction))
-
             }) {
                 Text(text = stringResource(R.string.add_income_button))
             }
@@ -88,7 +86,6 @@ private fun FinanceAppScreen() {
                 val transaction = Transaction(
                     250,
                     TransactionType.WITHDRAW,
-
                     )
                 state = reduce(state, MainUiEvent.AddTransaction(transaction))
             }) {
