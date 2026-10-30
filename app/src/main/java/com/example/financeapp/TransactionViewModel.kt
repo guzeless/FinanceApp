@@ -34,16 +34,14 @@ internal class TransactionViewModel : ViewModel() {
         )
     }
 
-    private fun validateInput(amount: Int?, description: String): TransactionError? =
-        when {
+    private fun validateInput(amount: Int?, description: String): TransactionError? = when {
             uiState.amount.isEmpty() || description.isEmpty() -> TransactionError.INVALID_INPUT
             amount == null -> TransactionError.AMOUNT_TOO_LARGE
             amount <= 0 -> TransactionError.INVALID_INPUT
             else -> null
         }
 
-    private fun TransactionError.toEvent(): MainUiEvent =
-        when (this) {
+    private fun TransactionError.toEvent(): MainUiEvent = when (this) {
             TransactionError.INVALID_INPUT -> MainUiEvent.InvalidTransaction
             TransactionError.AMOUNT_TOO_LARGE -> MainUiEvent.AmountTooLarge
         }
