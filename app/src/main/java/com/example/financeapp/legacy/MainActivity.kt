@@ -1,4 +1,4 @@
-package com.example.financeapp
+package com.example.financeapp.legacy
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -25,6 +25,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.financeapp.R
+import com.example.financeapp.TransactionScreen
 
 private const val AMOUNT: Int = 500
 
@@ -34,7 +36,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FinanceAppTheme {
-                FinanceAppScreen()
+                TransactionScreen()
             }
         }
     }

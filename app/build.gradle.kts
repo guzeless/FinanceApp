@@ -90,6 +90,7 @@ dependencies {
     val composeBom = platform(libs.androidx.compose.bom)
 
     implementation(composeBom)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.ui.tooling.preview)
@@ -97,7 +98,6 @@ dependencies {
     implementation(libs.material)
     debugImplementation(libs.androidx.compose.ui.tooling)
     testImplementation(libs.junit)
-    androidTestImplementation(composeBom)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
 }
