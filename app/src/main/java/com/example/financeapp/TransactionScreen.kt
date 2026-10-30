@@ -29,7 +29,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 @Suppress("FunctionNaming")
-internal fun TransactionScreen( viewModel: TransactionViewModel = viewModel(),) {
+internal fun TransactionScreen(viewModel: TransactionViewModel = viewModel())
+{
     val state = viewModel.uiState
 
     Surface(modifier = Modifier.fillMaxSize()) {
