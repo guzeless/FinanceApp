@@ -1,9 +1,13 @@
 package com.example.financeapp
 
-internal enum class TransactionType { INCOME, EXPENSE }
+internal enum class TransactionType {
+    INCOME,
+    EXPENSE,
+}
 
 internal enum class TransactionError {
-    INVALID_INPUT, AMOUNT_TOO_LARGE
+    INVALID_INPUT,
+    AMOUNT_TOO_LARGE,
 }
 
 internal data class Transaction(
@@ -24,10 +28,14 @@ internal data class MainUiState(
 
 internal sealed interface MainUiEvent {
     data class AmountChanged(val value: String) : MainUiEvent
-    data class DescriptionChanged(val value: String) : MainUiEvent
-    data class TypeChanged(val type: TransactionType) : MainUiEvent
-    data class AddTransaction(val transaction: Transaction) : MainUiEvent
-    data object InvalidTransaction : MainUiEvent
-    data object AmountTooLarge : MainUiEvent
 
+    data class DescriptionChanged(val value: String) : MainUiEvent
+
+    data class TypeChanged(val type: TransactionType) : MainUiEvent
+
+    data class AddTransaction(val transaction: Transaction) : MainUiEvent
+
+    data object InvalidTransaction : MainUiEvent
+
+    data object AmountTooLarge : MainUiEvent
 }
