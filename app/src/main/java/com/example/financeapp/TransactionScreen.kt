@@ -29,10 +29,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 @Suppress("FunctionNaming")
-internal fun TransactionScreen(
-    viewModel: TransactionViewModel = viewModel(),
-) {
-    val state = viewModel.uiState
+internal fun TransactionScreen( viewModel: TransactionViewModel = viewModel(),
+) { val state = viewModel.uiState
 
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(
@@ -42,11 +40,12 @@ internal fun TransactionScreen(
                 .padding(24.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Text(stringResource(R.string.transaction_title))
+            Text(stringResource(R.string.transaction_title),)
 
             Text(stringResource(
                 R.string.balance_summary,
-                state.balance, state.transactionCount,
+                state.balance,
+                state.transactionCount,
             ))
 
             OutlinedTextField(
@@ -57,7 +56,7 @@ internal fun TransactionScreen(
                 label = {
                     Text(stringResource(R.string.transaction_description))
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             )
 
             OutlinedTextField(
@@ -69,11 +68,11 @@ internal fun TransactionScreen(
                     Text(stringResource(R.string.transaction_amount))
                 },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             )
 
             Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 FilterChip(
                     selected = state.type == TransactionType.EXPENSE,
@@ -102,13 +101,13 @@ internal fun TransactionScreen(
                 }
                 Text(
                     text = stringResource(textId),
-                    color = MaterialTheme.colorScheme.error
+                    color = MaterialTheme.colorScheme.error,
                 )
             }
 
             Button(
                 onClick = viewModel::addTransaction,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             ) {
                 Text(stringResource(R.string.transaction_add))
             }
@@ -117,7 +116,7 @@ internal fun TransactionScreen(
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     text = stringResource(R.string.transaction_history),
-                    style = MaterialTheme.typography.titleMedium
+                    style = MaterialTheme.typography.titleMedium,
                 )
 
                 state.transactions.asReversed().forEach { tx ->
@@ -130,5 +129,7 @@ internal fun TransactionScreen(
                 }
             }
         }
+
     }
+
 }
